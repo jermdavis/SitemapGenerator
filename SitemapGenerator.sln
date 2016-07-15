@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitemapGenerator.Core", "SitemapGenerator.Core\SitemapGenerator.Core.csproj", "{E77DDC43-3169-4F86-A8E3-978FDEDAE7F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitemapGenerator.Tests", "SitemapGenerator.Tests\SitemapGenerator.Tests.csproj", "{10027D8D-9587-422C-9178-CE8FEB0A8312}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".tds", ".tds", "{EB932C92-3A70-4FF7-B975-3FBD57AFF2FB}"
+	ProjectSection(SolutionItems) = preProject
+		TdsGlobal.config = TdsGlobal.config
+	EndProjectSection
+EndProject
+Project("{CAA73BB0-EF22-4D79-A57E-DF67B3BA9C80}") = "SitemapGenerator.TDS.Master", "SitemapGenerator.TDS.Master\SitemapGenerator.TDS.Master.scproj", "{D822600C-3601-4054-9B11-C9AAC45F5B5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D35779A-8EEC-4A5F-B089-3904FAB61072}"
+	ProjectSection(SolutionItems) = preProject
+		Todo.txt = Todo.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E77DDC43-3169-4F86-A8E3-978FDEDAE7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77DDC43-3169-4F86-A8E3-978FDEDAE7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77DDC43-3169-4F86-A8E3-978FDEDAE7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77DDC43-3169-4F86-A8E3-978FDEDAE7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10027D8D-9587-422C-9178-CE8FEB0A8312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10027D8D-9587-422C-9178-CE8FEB0A8312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10027D8D-9587-422C-9178-CE8FEB0A8312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10027D8D-9587-422C-9178-CE8FEB0A8312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D822600C-3601-4054-9B11-C9AAC45F5B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D822600C-3601-4054-9B11-C9AAC45F5B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D822600C-3601-4054-9B11-C9AAC45F5B5A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D822600C-3601-4054-9B11-C9AAC45F5B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D822600C-3601-4054-9B11-C9AAC45F5B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D822600C-3601-4054-9B11-C9AAC45F5B5A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

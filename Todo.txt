@@ -1,0 +1,30 @@
+Todo
+----
+
+** Get solution into source control
+   Git Ignore
+   Use personal VSO?
+   How to deal with need for TDS binaries package?
+
+** create template items for the priority / change-frequency template extension
+   priority: number
+   change-frequency: DropList - set up value sets in module data
+
+** Get the right field ID for the last modified date/time field
+   Write code to parse this correctly - allowing for different locales
+
+** can we write a server-locale test for last modified parsing?
+
+** Write publisher config patch
+
+** Get solution configd for cloud build
+   -- Make a Sitecore References NuGet packages
+   -- Get the TDS NuGet packages into the cloud
+   -- Add TDS & Sitecore via NuGet
+   -- Grid of libs folder
+   -- Reconfigure TDS to use the packaged binaries to build
+   -- Set up the package build options
+
+** Test it on actual Sitecore!
+
+** Perf improvement - is it possible to do partial rebuilds?
