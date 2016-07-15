@@ -12,9 +12,8 @@ namespace SitemapGenerator.Core
 
     public class DataGenerator
     {
-        public static readonly ID ChangeFrequencyFieldID = new ID("873eb859-35af-48da-bf5d-22729736fe12");
-        public static readonly ID PriorityFieldID = new ID("c8b19c1d-d651-4c29-919f-61a1e8fd3aff");
-        public static readonly ID LastModifiedFieldID = new ID("9cf9d73f-273b-4f99-93da-7fc89c71021a");
+        public static readonly ID ChangeFrequencyFieldID = new ID("C24998E6-F08D-4283-8C3B-53D9AAF136CD");
+        public static readonly ID PriorityFieldID = new ID("260442BD-4E99-473E-82EF-2853A012FAA4");
 
         public UrlSet Generate(FileDefinition definition)
         {

@@ -11,7 +11,18 @@ namespace SitemapGenerator.Core
     {
         public void Write(string fileName, XDocument xml)
         {
-            xml.Save(fileName, SaveOptions.OmitDuplicateNamespaces);
+            string file;
+
+            if (System.Web.Hosting.HostingEnvironment.IsHosted)
+            {
+                file = System.Web.Hosting.HostingEnvironment.MapPath("/" + fileName);
+            }
+            else
+            {
+                file = fileName;
+            }
+
+            xml.Save(file, SaveOptions.OmitDuplicateNamespaces);
         }
     }
 
