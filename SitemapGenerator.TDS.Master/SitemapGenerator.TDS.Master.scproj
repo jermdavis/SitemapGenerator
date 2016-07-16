@@ -77,24 +77,31 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\ChangeFrequencies\always.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\ChangeFrequencies\daily.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\ChangeFrequencies\hourly.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\ChangeFrequencies\monthly.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\ChangeFrequencies\never.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\ChangeFrequencies\weekly.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\ChangeFrequencies\yearly.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\Databases.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -102,9 +109,11 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\Databases\master.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\Databases\web.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\system\Modules\SitemapGenerator\SitemapDefinitions.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -132,15 +141,19 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapFileDefinition\Configuration\LanguagesToInclude.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapFileDefinition\Configuration\RootItem.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapFileDefinition\Configuration\SourceDatabase.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapFileDefinition\Configuration\TemplatesToInclude.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapFileDefinition\Output.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -148,6 +161,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapFileDefinition\Output\FilenameToGenerate.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapItemProperties.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -155,6 +169,7 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapItemProperties\__Standard Values.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapItemProperties\Sitemap Settings.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
@@ -162,9 +177,11 @@
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapItemProperties\Sitemap Settings\ChangeFrequency.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
     <SitecoreItem Include="sitecore\templates\SitemapGenerator\SitemapItemProperties\Sitemap Settings\Priority.item">
       <ItemDeployment>AlwaysUpdate</ItemDeployment>
+      <ChildItemSynchronization>NoChildSynchronization</ChildItemSynchronization>
     </SitecoreItem>
   </ItemGroup>
   <ItemGroup>
