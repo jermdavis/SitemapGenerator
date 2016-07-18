@@ -2,22 +2,20 @@ Todo
 ----
 
 ** Get solution configd for cloud build
-   xx Get the TDS NuGet packages into the cloud
-   xx Add Sitecore NuGet package for 8.1
-   xx Grid of libs folder
-
-   -- Add TDS via NuGet
-   -- Reconfigure TDS to use the packaged binaries to build
-   -- Set up the package build options
-
-** Perf improvement - is it possible to do partial rebuilds?
-
-** Command & buttons to triger regen without publish?
-
-** does it need an "include in sitemap" field in the template?
+   -- Work out how to fix the licensing for FakeDB
+     -- Can the package restore be forced to copy the license file even though it's already in the solution?
+	 -- Or can we make the folder it ends up version independent but outside the project?
+	 -- Use Install1.ps ? http://stackoverflow.com/questions/5904080/nuget-package-without-adding-files-to-visual-studio-project
+	 -- Revert the FakeDB app.config after changes
 
 ** If you have a single language it's still generating alternative urls
    -- write a test to show this is wrong
    -- fix it
 
+** Command & buttons to triger regen without publish?
+
+** does it need an "include in sitemap" field in the template?
+
 ** Write instructions in the ReadMe
+
+** Perf improvement - is it possible to do partial rebuilds of the sitemap file?
