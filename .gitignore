@@ -244,6 +244,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-# Project Specific
-[Ss]itecore[Ll]ib/
+# Sitecore.FakeDB.Licensing nuget package
 **/[Ll]icense.xml
+
