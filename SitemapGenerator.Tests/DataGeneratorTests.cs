@@ -187,8 +187,8 @@ namespace SitemapGenerator.Tests
                     { "cy", "Welsh" }
                 }
             };
-            var language1 = new DbItem("en") { { "Iso", "en" } };
-            var language2 = new DbItem("cy") { { "Iso", "cy" } };
+            var language1 = new DbItem("en") { { "Iso", "en" }, { "Regional Iso Code", "" } };
+            var language2 = new DbItem("cy") { { "Iso", "cy" }, { "Regional Iso Code", "cy" } };
             using (Db db = new Db
                 {
                     template,
@@ -210,7 +210,133 @@ namespace SitemapGenerator.Tests
 
                 Assert.IsNotNull(urlSet);
                 Assert.AreEqual(1, urlSet.Count);
-                Assert.AreEqual(2, urlSet.First().AlternateUrls.Count);
+                Assert.AreEqual(1, urlSet.First().AlternateUrls.Count);
+                Assert.AreEqual("cy", urlSet.First().AlternateUrls.First().Language);
+            }
+        }
+
+        [TestMethod]
+        public void Generate_MultiLanguageWithOnlyOneSelectedLanguageItemGeneratesRightReturn()
+        {
+            var template = new DbTemplate("ContentTemplate");
+            var home = new DbItem("home")
+            {
+                new DbField("Title")
+                {
+                    { "en", "English" },
+                    { "cy", "Welsh" }
+                }
+            };
+            var language1 = new DbItem("en") { { "Iso", "en" }, { "Regional Iso Code", "" } };
+            var language2 = new DbItem("cy") { { "Iso", "cy" }, { "Regional Iso Code", "cy" } };
+            using (Db db = new Db
+                {
+                    template,
+                    home,
+                    language1,
+                    language2
+                })
+            {
+                var sfd = FileDefinition.Empty;
+                sfd.FilenameToGenerate = "sitemap.xml";
+                sfd.RootItem = home.ID.ToGuid();
+                sfd.SourceDatabase = "master";
+                sfd.LanguagesToInclude.Add(language1.ID.ToGuid());
+                sfd.ResolveLanguages(db.Database);
+
+                DataGenerator sc = new DataGenerator();
+                var urlSet = sc.Generate(sfd);
+
+                Assert.IsNotNull(urlSet);
+                Assert.AreEqual(1, urlSet.Count);
+                Assert.AreEqual(0, urlSet.First().AlternateUrls.Count);
+            }
+        }
+
+        [TestMethod]
+        public void Generate_MultiLanguageWithIncorrectItemLanguageIsNotRecorded()
+        {
+            var template = new DbTemplate("ContentTemplate");
+            var home = new DbItem("home")
+            {
+                new DbField("Title")
+                {
+                    { "fr-fr", "French" },
+                    { "ru-ru", "Russian" }
+                }
+            };
+            var language1 = new DbItem("en-us") { { "Iso", "en" }, { "Regional Iso Code", "en-US" } };
+            var language2 = new DbItem("cy") { { "Iso", "cy" }, { "Regional Iso Code", "cy" } };
+            using (Db db = new Db
+                {
+                    template,
+                    home,
+                    language1,
+                    language2
+                })
+            {
+                var sfd = FileDefinition.Empty;
+                sfd.FilenameToGenerate = "sitemap.xml";
+                sfd.RootItem = home.ID.ToGuid();
+                sfd.SourceDatabase = "master";
+                sfd.LanguagesToInclude.Add(language1.ID.ToGuid());
+                sfd.ResolveLanguages(db.Database);
+
+                DataGenerator sc = new DataGenerator();
+                var urlSet = sc.Generate(sfd);
+
+                Assert.IsNotNull(urlSet);
+                Assert.AreEqual(0, urlSet.Count);
+            }
+        }
+
+        [TestMethod]
+        public void Generate_MultiLanguageWithMixedItemLanguagesAreRecordedCorrectly()
+        {
+            var template = new DbTemplate("ContentTemplate");
+            var home = new DbItem("home")
+            {
+                new DbField("Title")
+                {
+                    { "en", "English" }
+                },
+                new DbItem("child")
+                {
+                    new DbField("Title")
+                    {
+                        { "en", "English" },
+                        { "mi-NZ", "Maori" }
+                    }
+                }
+            };
+
+            var language1 = new DbItem("en") { { "Iso", "en" }, { "Regional Iso Code", "" } };
+            var language2 = new DbItem("mi-NZ") { { "Iso", "mi" }, { "Regional Iso Code", "mi-NZ" } };
+            using (Db db = new Db
+                {
+                    template,
+                    home,
+                    language1,
+                    language2
+                })
+            {
+                var sfd = FileDefinition.Empty;
+                sfd.FilenameToGenerate = "sitemap.xml";
+                sfd.RootItem = home.ID.ToGuid();
+                sfd.SourceDatabase = "master";
+                sfd.LanguagesToInclude.Add(language1.ID.ToGuid());
+                sfd.LanguagesToInclude.Add(language2.ID.ToGuid());
+                sfd.ResolveLanguages(db.Database);
+
+                DataGenerator sc = new DataGenerator();
+                var urlSet = sc.Generate(sfd);
+
+                Assert.IsNotNull(urlSet);
+                Assert.AreEqual(2, urlSet.Count);
+
+                Assert.AreEqual(0, urlSet[0].AlternateUrls.Count);
+                Assert.AreEqual(1, urlSet[1].AlternateUrls.Count);
+                Assert.AreEqual("mi-NZ", urlSet[1].AlternateUrls.First().Language);
             }
         }
 

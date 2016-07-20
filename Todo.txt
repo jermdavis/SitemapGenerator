@@ -1,16 +1,7 @@
 Todo
 ----
 
-** Get solution configd for cloud build
-   -- Work out how to fix the licensing for FakeDB
-     -- Can the package restore be forced to copy the license file even though it's already in the solution?
-	 -- Or can we make the folder it ends up version independent but outside the project?
-	 -- Use Install1.ps ? http://stackoverflow.com/questions/5904080/nuget-package-without-adding-files-to-visual-studio-project
-	 -- Revert the FakeDB app.config after changes
-
-** If you have a single language it's still generating alternative urls
-   -- write a test to show this is wrong
-   -- fix it
+** Work out how to extract the build artifacts once it completes
 
 ** Command & buttons to triger regen without publish?
 

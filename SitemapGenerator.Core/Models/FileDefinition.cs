@@ -91,14 +91,14 @@ namespace SitemapGenerator.Core.Models
             foreach(var id in LanguagesToInclude)
             {
                 Item itm = db.GetItem(new ID(id));
-                string code = itm.Fields["Iso"].Value;
+                string code = itm.Fields["Regional Iso Code"].Value;
+                if(string.IsNullOrWhiteSpace(code))
+                {
+                    code = itm.Fields["Iso"].Value;
+                }
+
                 LanguageCodesToInclude.Add(code);
             }
-
-            LanguageCodesToInclude = LanguagesToInclude
-                .Select(id => db.GetItem(new ID(id)))
-                .Select(itm => itm.Fields["Iso"].Value)
-                .ToList();
 
             LanguagesResolved = true;
         }

@@ -5,6 +5,8 @@ using Sitecore.Globalization;
 using Sitecore.Links;
 using SitemapGenerator.Core.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace SitemapGenerator.Core
@@ -45,14 +47,30 @@ namespace SitemapGenerator.Core
         {
             if (definition.TemplatesToInclude.Count == 0 || definition.TemplatesToInclude.Contains(itm.TemplateID.ToGuid()))
             {
-                var url = makeUrl(itm, definition);
-                urlSet.Add(url);
+                if (definition.LanguageCodesToInclude.Count == 0 || hasAValidLanguage(itm, definition.LanguageCodesToInclude))
+                {
+                    var url = makeUrl(itm, definition);
+                    urlSet.Add(url);
+                }
             }
 
             foreach(Item child in itm.Children)
             {
                 process(child, urlSet, definition);
             }
+        }
+
+        private bool hasAValidLanguage(Item itm, IEnumerable<string> codes)
+        {
+            foreach (Language l in itm.Languages)
+            {
+                if (codes.Contains(l.Name))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private Url makeUrl(Item itm, FileDefinition definition)
@@ -63,11 +81,17 @@ namespace SitemapGenerator.Core
 
             foreach (var language in itm.Languages)
             {
-                if(definition.LanguageCodesToInclude.Contains(language.Name))
+                if (language.Name != itm.Language.Name)
                 {
-                    var alt = createAltUrl(itm, language);
-
-                    u.AlternateUrls.Add(alt);
+                    if (definition.LanguageCodesToInclude.Contains(language.Name))
+                    {
+                        var lngItm = itm.Database.GetItem(itm.ID, language);
+                        if (lngItm != null && lngItm.Versions.Count > 0)
+                        {
+                            var alt = createAltUrl(itm, language);
+                            u.AlternateUrls.Add(alt);
+                        }
+                    }
                 }
             }
 

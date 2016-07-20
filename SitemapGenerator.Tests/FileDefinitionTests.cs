@@ -42,8 +42,8 @@ namespace SitemapGenerator.Tests
             var template3 = new DbTemplate("Content3");
             var dbItem = new DbItem("master");
             var home = new DbItem("Home");
-            var language1 = new DbItem("en") { { "Iso", "en" } };
-            var language2 = new DbItem("cy") { { "Iso", "cy" } };
+            var language1 = new DbItem("en") { { "Iso", "en" }, { "Regional Iso Code", "" } };
+            var language2 = new DbItem("cy") { { "Iso", "cy" }, { "Regional Iso Code", "cy" } };
             var cfgItem = new DbItem("ExampleSitemapFileDefinition")
             {
                 TemplateID = FileDefinition.SitemapFileDefinitionID,
