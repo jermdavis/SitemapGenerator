@@ -11,18 +11,29 @@ namespace SitemapGenerator.Core
     {
         public void Write(string fileName, XDocument xml)
         {
-            string file;
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                throw new ArgumentNullException("fileName");
+            }
+
+            if(xml == null)
+            {
+                throw new ArgumentNullException("xml");
+            }
+
+            string fileWithoutPath = System.IO.Path.GetFileName(fileName);
+            string diskFileName;
 
             if (System.Web.Hosting.HostingEnvironment.IsHosted)
             {
-                file = System.Web.Hosting.HostingEnvironment.MapPath("/" + fileName);
+                diskFileName = System.Web.Hosting.HostingEnvironment.MapPath("/" + fileWithoutPath);
             }
             else
             {
-                file = fileName;
+                diskFileName = fileWithoutPath;
             }
 
-            xml.Save(file, SaveOptions.OmitDuplicateNamespaces);
+            xml.Save(diskFileName, SaveOptions.OmitDuplicateNamespaces);
         }
     }
 
