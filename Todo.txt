@@ -1,12 +1,13 @@
 Todo
 ----
 
-** Work out how to extract the build artifacts once it completes
+** Ensure that the FilenameToGenerate field can't be used for a security issue: Ensure it does not honour path data entered.
+
+** What if a CD server doesn't have access to Master? Do we need a config setting to say "which db should I read config from",
+   and separate config includes for CM/CD and CD-Only installs?
 
 ** Command & buttons to triger regen without publish?
 
 ** does it need an "include in sitemap" field in the template?
-
-** Write instructions in the ReadMe
 
 ** Perf improvement - is it possible to do partial rebuilds of the sitemap file?
