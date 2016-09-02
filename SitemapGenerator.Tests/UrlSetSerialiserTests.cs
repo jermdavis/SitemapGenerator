@@ -13,7 +13,7 @@ namespace SitemapGenerator.Tests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Serialise_ThrowsWithNullSource()
+        public void UrlSetSerialiser_Serialise_ThrowsWithNullSource()
         {
             var serialiser = new UrlSetSerialiser();
 
@@ -21,7 +21,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_EmptyUrlSetGivesValidEmptyDocument()
+        public void UrlSetSerialiser_Serialise_EmptyUrlSetGivesValidEmptyDocument()
         {
             var urlSet = new UrlSet();
             var serialiser = new UrlSetSerialiser();
@@ -33,7 +33,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_SingleUrlGivesValidDocument()
+        public void UrlSetSerialiser_Serialise_SingleUrlGivesValidDocument()
         {
             var urlSet = new UrlSet();
             urlSet.Add(new Url("123"));
@@ -54,7 +54,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_MultipleUrlsGivesCorrectDocument()
+        public void UrlSetSerialiser_Serialise_MultipleUrlsGivesCorrectDocument()
         {
             var urlSet = new UrlSet();
             for(int i=0; i<10; i++)
@@ -74,7 +74,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_OverallDocumentHasCorrectFormat()
+        public void UrlSetSerialiser_Serialise_OverallDocumentHasCorrectFormat()
         {
             var urlSet = new UrlSet();
             var url = new Url("http://www.com/") { ChangeFrequency = ChangeFrequency.Daily };

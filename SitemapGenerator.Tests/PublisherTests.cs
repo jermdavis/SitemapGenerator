@@ -13,13 +13,13 @@ namespace SitemapGenerator.Tests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Constructor_NullWriterThrows()
+        public void Publisher_Constructor_NullWriterThrows()
         {
             var p = new Publisher(null);
         }
 
         [TestMethod]
-        public void Constructor_MockWriterIsAllowed()
+        public void Publisher_Constructor_MockWriterIsAllowed()
         {
             var w = new Mocks.MockISitemapDataWriter();
             var p = new Publisher(w);
@@ -28,7 +28,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Constructor_DefaultConfigDatabaseIsMaster()
+        public void Publisher_Constructor_DefaultConfigDatabaseIsMaster()
         {
             var w = new Mocks.MockISitemapDataWriter();
             var p = new Publisher(w);
@@ -37,7 +37,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Constructor_CustomConfigDatabaseWorks()
+        public void Publisher_Constructor_CustomConfigDatabaseWorks()
         {
             using (Db db = new Db("web"))
             {
@@ -51,17 +51,15 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Constructor_DefaultIsNormalWriter()
+        public void Publisher_Constructor_DefaultIsNormalWriter()
         {
             var w = new Publisher();
             Assert.IsInstanceOfType(w.Writer, typeof(DiskDataWriter));
         }
 
         [TestMethod]
-        public void Execute_SingleItemGeneratesCorrectXML()
+        public void Publisher_Execute_SingleItemGeneratesCorrectXML()
         {
-            //var x = new Sitecore.FakeDb.Configuration.
-
             var home = new DbItem("Home");
 
             var database = new DbItem("master");

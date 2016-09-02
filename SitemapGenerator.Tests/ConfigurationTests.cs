@@ -14,14 +14,14 @@ namespace SitemapGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Fetch_PassingNulDBThrows()
+        public void Configuration_Fetch_PassingNulDBThrows()
         {
             var sc = new Configuration();
             var result = sc.Fetch(null);
         }
 
         [TestMethod]
-        public void Fetch_PassingEmptyDBWorks()
+        public void Configuration_Fetch_PassingEmptyDBWorks()
         {
             var database = new DbItem("master");
 
@@ -53,7 +53,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Fetch_PassingDBWithOneDefinitionWorks()
+        public void Configuration_Fetch_PassingDBWithOneDefinitionWorks()
         {
             var template1 = new DbTemplate("Content1");
             var template2 = new DbTemplate("Content2");
@@ -113,7 +113,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Fetch_PassingDBWithThreeDefinitionsWorks()
+        public void Configuration_Fetch_PassingDBWithThreeDefinitionsWorks()
         {
             var template1 = new DbTemplate("Content1");
             var template2 = new DbTemplate("Content2");

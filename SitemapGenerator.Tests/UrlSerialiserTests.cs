@@ -13,7 +13,7 @@ namespace SitemapGenerator.Tests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Serialise_NullUrlThrows()
+        public void UrlSerialiser_Serialise_NullUrlThrows()
         {
             var serialiser = new UrlSetSerialiser();
 
@@ -21,7 +21,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_DefaultUrlReturnsOnlyLocation()
+        public void UrlSerialiser_Serialise_DefaultUrlReturnsOnlyLocation()
         {
             string exampleUrl = "http://blah/";
 
@@ -41,7 +41,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_ProvidingLastModifiedDateOnlyFormatsCorrectly()
+        public void UrlSerialiser_Serialise_ProvidingLastModifiedDateOnlyFormatsCorrectly()
         {
             DateTime dt = new DateTime(2015, 01, 25);
 
@@ -62,7 +62,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_ProvidingLastModifiedDateWithTimeFormatsCorrectly()
+        public void UrlSerialiser_Serialise_ProvidingLastModifiedDateWithTimeFormatsCorrectly()
         {
             DateTime dt = new DateTime(2015, 02, 27, 13, 12, 11, DateTimeKind.Utc);
 
@@ -83,7 +83,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_ProvidingChangeFrequencyFormatsCorrectly()
+        public void UrlSerialiser_Serialise_ProvidingChangeFrequencyFormatsCorrectly()
         {
             ChangeFrequency cf = ChangeFrequency.Hourly;
 
@@ -104,7 +104,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_ProvidingPriorityFormatsCorrectly()
+        public void UrlSerialiser_Serialise_ProvidingPriorityFormatsCorrectly()
         {
             float priority = 0.7124f;
 
@@ -125,7 +125,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_ProvidingEverythingFormatsCorrectly()
+        public void UrlSerialiser_Serialise_ProvidingEverythingFormatsCorrectly()
         {
             float priority = 0.195f;
             ChangeFrequency cf = ChangeFrequency.Weekly;
@@ -158,7 +158,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_AlternateURLsFormatCorrectly()
+        public void UrlSerialiser_Serialise_AlternateURLsFormatCorrectly()
         {
             var serialiser = new UrlSetSerialiser();
 

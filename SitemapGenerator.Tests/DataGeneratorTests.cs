@@ -15,7 +15,7 @@ namespace SitemapGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Generate_PassingNullThrows()
+        public void DataGenerator_Generate_PassingNullThrows()
         {
             DataGenerator sc = new DataGenerator();
             sc.Generate(null);
@@ -23,7 +23,7 @@ namespace SitemapGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void Generate_FailureToResolveLanguagesThrows()
+        public void DataGenerator_Generate_FailureToResolveLanguagesThrows()
         {
             var sfd = FileDefinition.Empty;
 
@@ -32,7 +32,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_ReturnsAUrlSet()
+        public void DataGenerator_Generate_ReturnsAUrlSet()
         {
             var sfd = FileDefinition.Empty;
 
@@ -48,7 +48,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_SingleItemWorks()
+        public void DataGenerator_Generate_SingleItemWorks()
         {
             var home = new DbItem("home");
             using (Db db = new Db
@@ -76,7 +76,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_ParentAndChildWorks()
+        public void DataGenerator_Generate_ParentAndChildWorks()
         {
             var home = new DbItem("home")
             {
@@ -113,7 +113,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_OnlyTemplateItemsReturned()
+        public void DataGenerator_Generate_OnlyTemplateItemsReturned()
         {
             var template = new DbTemplate("ContentTemplate");
             var home = new DbItem("home")
@@ -150,7 +150,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_NoItemsOfRightTemplateReturnsNothing()
+        public void DataGenerator_Generate_NoItemsOfRightTemplateReturnsNothing()
         {
             var template = new DbTemplate("ContentTemplate");
             var home = new DbItem("home");
@@ -176,7 +176,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_MultiLanguageItemGeneratesRightReturn()
+        public void DataGenerator_Generate_MultiLanguageItemGeneratesRightReturn()
         {
             var template = new DbTemplate("ContentTemplate");
             var home = new DbItem("home")
@@ -216,7 +216,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_MultiLanguageWithOnlyOneSelectedLanguageItemGeneratesRightReturn()
+        public void DataGenerator_Generate_MultiLanguageWithOnlyOneSelectedLanguageItemGeneratesRightReturn()
         {
             var template = new DbTemplate("ContentTemplate");
             var home = new DbItem("home")
@@ -254,7 +254,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_MultiLanguageWithIncorrectItemLanguageIsNotRecorded()
+        public void DataGenerator_Generate_MultiLanguageWithIncorrectItemLanguageIsNotRecorded()
         {
             var template = new DbTemplate("ContentTemplate");
             var home = new DbItem("home")
@@ -291,7 +291,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_MultiLanguageWithMixedItemLanguagesAreRecordedCorrectly()
+        public void DataGenerator_Generate_MultiLanguageWithMixedItemLanguagesAreRecordedCorrectly()
         {
             var template = new DbTemplate("ContentTemplate");
             var home = new DbItem("home")
@@ -341,7 +341,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_PriotityEtcExtractedIfAvailable()
+        public void DataGenerator_Generate_PriotityEtcExtractedIfAvailable()
         {
             var template = new DbTemplate("ContentTemplate") {
                 new DbField("ChangeFrequency", DataGenerator.ChangeFrequencyFieldID),
@@ -379,7 +379,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_DefaultsForPriorityEtcIfNotAvailable()
+        public void DataGenerator_Generate_DefaultsForPriorityEtcIfNotAvailable()
         {
             var template = new DbTemplate("ContentTemplate");
             var home = new DbItem("home");
@@ -408,7 +408,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_CorrectLastModifiedFieldExtracted()
+        public void DataGenerator_Generate_CorrectLastModifiedFieldExtracted()
         {
             var template = new DbTemplate("ContentTemplate") {
                 new DbField("__Updated", Sitecore.FieldIDs.Updated)
@@ -442,7 +442,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Generate_ForeignLastModifiedDateWorks()
+        public void DataGenerator_Generate_ForeignLastModifiedDateWorks()
         {
             var template = new DbTemplate("ContentTemplate") {
                 new DbField("__Updated", Sitecore.FieldIDs.Updated)

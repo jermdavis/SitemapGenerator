@@ -11,7 +11,7 @@ namespace SitemapGenerator.Tests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Serialise_NullAlternativeThrows()
+        public void AltUrlSerialiser_Serialise_NullAlternativeThrows()
         {
             var serialiser = new UrlSetSerialiser();
 
@@ -19,7 +19,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Serialise_AlternateGeneratesCorrectElement()
+        public void AltUrlSerialiser_Serialise_AlternateGeneratesCorrectElement()
         {
             var serialiser = new UrlSetSerialiser();
 

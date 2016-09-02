@@ -28,7 +28,7 @@ namespace SitemapGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Write_NullFilenameThrows()
+        public void DiskDataWriter_Write_NullFilenameThrows()
         {
             var dw = new DiskDataWriter();
             var xml = new XDocument();
@@ -37,7 +37,7 @@ namespace SitemapGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Write_EmptyFilenameThrows()
+        public void DiskDataWriter_Write_EmptyFilenameThrows()
         {
             var dw = new DiskDataWriter();
             var xml = new XDocument();
@@ -46,14 +46,14 @@ namespace SitemapGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Write_EmptyXmlDocThrows()
+        public void DiskDataWriter_Write_EmptyXmlDocThrows()
         {
             var dw = new DiskDataWriter();
             dw.Write("test", null);
         }
 
         [TestMethod]
-        public void Write_GeneratesNonZeroLengthFile()
+        public void DiskDataWriter_Write_GeneratesNonZeroLengthFile()
         {
             var xml = new XDocument();
             xml.Add(new XElement("Hello"));
@@ -68,7 +68,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Write_FilenameWithPathIgnoresPath()
+        public void DiskDataWriter_Write_FilenameWithPathIgnoresPath()
         {
             var xml = new XDocument();
             xml.Add(new XElement("Hello"));

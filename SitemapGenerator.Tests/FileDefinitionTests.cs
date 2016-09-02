@@ -13,14 +13,14 @@ namespace SitemapGenerator.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Constructor_PassingNullThrows()
+        public void FileDefinition_Constructor_PassingNullThrows()
         {
             var sfd = new FileDefinition(null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void Constructor_PassingWrongItemTypeThrows()
+        public void FileDefinition_Constructor_PassingWrongItemTypeThrows()
         {
             using (Db db = new Db
                 {
@@ -34,7 +34,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Constructor_PassingValidConfigItemParsesOK()
+        public void FileDefinition_Constructor_PassingValidConfigItemParsesOK()
         {
             var cfgTemplate = new DbTemplate("SitemapFileDefinition", FileDefinition.SitemapFileDefinitionID) { "FilenameToGenerate", "SourceDatabase", "RootItem", "LanguagesToInclude", "TemplatesToInclude" };
             var template1 = new DbTemplate("Content1");
@@ -88,7 +88,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Constructor_PassingEmptyLanguagesAndTemplatesWorks()
+        public void FileDefinition_Constructor_PassingEmptyLanguagesAndTemplatesWorks()
         {
             var cfgTemplate = new DbTemplate("SitemapFileDefinition", FileDefinition.SitemapFileDefinitionID) { "FilenameToGenerate", "SourceDatabase", "RootItem", "LanguagesToInclude", "TemplatesToInclude" };
             var home = new DbItem("Home");
@@ -122,7 +122,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Constructor_PassingEmptyRootWorks()
+        public void FileDefinition_Constructor_PassingEmptyRootWorks()
         {
             var cfgTemplate = new DbTemplate("SitemapFileDefinition", FileDefinition.SitemapFileDefinitionID) { "FilenameToGenerate", "SourceDatabase", "RootItem", "LanguagesToInclude", "TemplatesToInclude" };
             var cfgItem = new DbItem("ExampleSitemapFileDefinition")
@@ -153,14 +153,14 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void Constructor_LanguageResolvedFlagStartsFalseForEmpty()
+        public void FileDefinition_Constructor_LanguageResolvedFlagStartsFalseForEmpty()
         {
             var sfd = FileDefinition.Empty;
             Assert.AreEqual(false, sfd.LanguagesResolved);
         }
 
         [TestMethod]
-        public void Constructor_LanguagesResolvedStartsFalseWhenParsing()
+        public void FileDefinition_Constructor_LanguagesResolvedStartsFalseWhenParsing()
         {
             var cfgTemplate = new DbTemplate("SitemapFileDefinition", FileDefinition.SitemapFileDefinitionID) { "FilenameToGenerate", "SourceDatabase", "RootItem", "LanguagesToInclude", "TemplatesToInclude" };
             var home = new DbItem("Home");
@@ -193,7 +193,7 @@ namespace SitemapGenerator.Tests
         }
 
         [TestMethod]
-        public void ResolveLanguages_SetsLanguagesResolvedFlagTrue()
+        public void FileDefinition_ResolveLanguages_SetsLanguagesResolvedFlagTrue()
         {
             var cfgTemplate = new DbTemplate("SitemapFileDefinition", FileDefinition.SitemapFileDefinitionID) { "FilenameToGenerate", "SourceDatabase", "RootItem", "LanguagesToInclude", "TemplatesToInclude" };
             var home = new DbItem("Home");
