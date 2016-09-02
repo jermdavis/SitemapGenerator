@@ -2,6 +2,14 @@
 
 A simple example of generating an XML sitemap file after a Sitecore publish operation. 
 
+**NB:** This solution references private NuGet packages. To build and run tests you
+will need to provide your own alternative source for the Hedgehog TDS binaries package,
+and you will need to produce your own version of the Sitecore.FakeDB.Licensing package.
+See 
+* https://jermdavis.wordpress.com/2016/08/08/sitecore-builds-with-visual-studio-online-part-1-private-nuget-feeds/
+* https://jermdavis.wordpress.com/2016/08/22/sitecore-builds-with-visual-studio-online-part-2-building-code-and-running-tests/
+for ideas about what you can do here.
+
 ## Installation
 
 Install the `.update` package supplied using your preferred method, and then publish:
