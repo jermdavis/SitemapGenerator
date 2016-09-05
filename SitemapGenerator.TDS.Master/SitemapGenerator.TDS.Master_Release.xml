@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TDSAnalysis>
+  <Rules>
+    <Rule validator="HedgehogDevelopment.SitecoreProject.Analysis.TemplateStructure, HedgehogDevelopment.SitecoreProject.Analysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" severity="Warn" />
+    <Rule validator="HedgehogDevelopment.SitecoreProject.Analysis.DeploymentOptionsValidator, HedgehogDevelopment.SitecoreProject.Analysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" severity="Warn" />
+  </Rules>
+</TDSAnalysis>
