@@ -1,5 +1,7 @@
 # Sitemap Generator
 
+![Build Status](https://clerkswell.visualstudio.com/_apis/public/build/definitions/bc27bb6a-7ada-4ec7-a59b-e6695807072a/2/badge)
+
 A simple example of generating an XML sitemap file after a Sitecore publish operation. 
 
 Written as an example project for some blog posts - not intended as production code.
@@ -53,3 +55,4 @@ Note that:
 
 The module will update the sitemap file after each publish operation. No other actions
 are required to keep it in sync with the content.
+
